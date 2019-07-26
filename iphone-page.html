@@ -40,14 +40,13 @@
       customerBox.innerHTML ="Name: " + customerData.name + "<br>" + "&nbspServices: " + customerData.services;
       
       customerBox.addEventListener('click', function() {
-        const bg = customerBox.style.backgroundColor;
-        let bgc = localStorage.getElement('bgc');
-        if (bg == "rgb(0, 245, 0)") {
-          customerBox.style.backgroundColor = "white";
-          localStorage.setElement('bgc', 'white')
+        var currentBG = localStorage.getItem('cBG');
+        if (currentBG == "rgb(0, 245, 0)") {
+          localStorage.setItem('cBG', 'white');
+          customerBox.style.backgroundColor = localStorage.getItem('cBG');
         } else {
-          customerBox.style.backgroundColor = "rgb(0, 245, 0)";
-          localStorage.setElement('bgc', 'rgb(0, 245, 0)')
+          localStorage.setItem('cBG', 'rgb(0, 0245,0)');
+          customerBox.style.backgroundColor = localStorage.getItem('cBG');
         }
       })
 
