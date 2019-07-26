@@ -38,7 +38,8 @@
       const customerBox = document.createElement("div");
       customerBox.className = "customer-box";
       customerBox.innerHTML ="Name: " + customerData.name + "<br>" + "&nbspServices: " + customerData.services;
-      customerBox.scrollIntoView();
+      
+      window.scrollTo(0, document.body.scrollHeight);
       
       // TODO: Think about how to implement localStorage to keep colors upon refresh.
 
