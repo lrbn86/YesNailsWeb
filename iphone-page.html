@@ -44,12 +44,13 @@
       // TODO: Think about how to implement localStorage to keep colors upon refresh.
 
       customerBox.addEventListener('click', function() {
-        var currentBG = localStorage.getItem('cBG');
+        var currentBG = sessionStorage.getItem('cBG');
         if (currentBG == "rgb(0, 245, 0)") {
-          localStorage.setItem('cBG', 'white');
+          sessionStorage.setItem('cBG', 'white');
+          
           customerBox.style.backgroundColor = 'white';
         } else {
-          localStorage.setItem('cBG', 'rgb(0, 0245,0)');
+          sessionStorage.setItem('cBG', 'rgb(0, 0245,0)');
           customerBox.style.backgroundColor = 'rgb(0, 0245,0)';
         }
       })
