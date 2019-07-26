@@ -1,0 +1,20 @@
+/* May have to center these buttons on the page
+  both vertically and horizontally */
+
+#phoneBtn {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 200px;
+  height: 200px;
+  font-size: 50px;
+}
+
+#padBtn {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  width: 200px;
+  height: 200px;
+  font-size: 50px;
+}
