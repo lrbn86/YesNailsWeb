@@ -7,6 +7,66 @@
   <title>Yes Nails - iPad</title>
 </head>
 <body>
+  <input id="nameField" type="text" placeholder="name">
+  <br>
+  <input id="servicesField" type="text" placeholder="services">
+  <br>
+  <button id="checkBtn" type="submit">Check In</button>
+
   
+  <script src="https://www.gstatic.com/firebasejs/6.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyB-XIAYlgkj6hXhgowO-gVCHPUAZO-nfDw",
+      authDomain: "yesnailsreviseddb.firebaseapp.com",
+      databaseURL: "https://yesnailsreviseddb.firebaseio.com",
+      projectId: "yesnailsreviseddb",
+      storageBucket: "",
+      messagingSenderId: "48437178245",
+      appId: "1:48437178245:web:68cc55f1dc0bcb66"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    var database = firebase.database();
+
+    const nameField = document.getElementById("nameField");
+    const servicesField = document.getElementById("servicesField");
+    const checkBtn = document.getElementById("checkBtn");
+
+    nameField.value = "";
+    servicesField.value = "";
+
+    
+
+    checkBtn.addEventListener('click', function() {
+      var today = new Date();
+      var date = pad((today.getMonth()+1))+'-'+pad(today.getDate())+'-'+today.getFullYear();
+      var time = pad(today.getHours())+':'+pad(today.getMinutes())+':'+pad(today.getSeconds());
+      var dateTime = date+' '+time;
+
+      // Send data to firebase
+      firebase.database().ref('customers/' + dateTime).set({
+        name: nameField.value,
+        services: servicesField.value
+      }, function(error) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("NO ERRORS");
+        }
+      });
+
+      // Clear fields
+      nameField.value = "";
+      servicesField.value = "";
+    });
+
+    // Pad the single digits so that firebase can correctly order the entries.
+    function pad(n) {
+      return (n < 10) ? ("0" + n) : n;
+    }
+  </script>
 </body>
 </html>
