@@ -39,6 +39,8 @@
       customerBox.className = "customer-box";
       customerBox.innerHTML ="Name: " + customerData.name + "<br>" + "&nbspServices: " + customerData.services;
       
+      // Scroll to bottom every time an item is added.
+      // Currently works on the phone, but not on desktop
       window.scrollTo(0, document.body.scrollHeight);
       
       // TODO: Think about how to implement localStorage to keep colors upon refresh.
@@ -50,8 +52,8 @@
           
           customerBox.style.backgroundColor = 'white';
         } else {
-          sessionStorage.setItem('cBG', 'rgb(0, 0245,0)');
-          customerBox.style.backgroundColor = 'rgb(0, 0245,0)';
+          sessionStorage.setItem('cBG', 'rgb(0, 245,0)');
+          customerBox.style.backgroundColor = 'rgb(0, 245,0)';
         }
       })
 
