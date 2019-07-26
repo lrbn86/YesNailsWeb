@@ -41,10 +41,13 @@
       
       customerBox.addEventListener('click', function() {
         const bg = customerBox.style.backgroundColor;
+        let bgc = localStorage.getElement('bgc');
         if (bg == "rgb(0, 245, 0)") {
           customerBox.style.backgroundColor = "white";
+          localStorage.setElement('bgc', 'white')
         } else {
           customerBox.style.backgroundColor = "rgb(0, 245, 0)";
+          localStorage.setElement('bgc', 'rgb(0, 245, 0)')
         }
       })
 
