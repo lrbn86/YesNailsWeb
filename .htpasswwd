@@ -1,1 +1,1 @@
-htpasswd -c .htpasswd lrbn86
+htpasswd -c .htpasswd lrbn8
