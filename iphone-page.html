@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Yes Nails - iPhone</title>
+  <link rel="stylesheet" href="iphone-page.css">
+</head>
+<body>
+  <div id="container">
+  </div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/6.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyB-XIAYlgkj6hXhgowO-gVCHPUAZO-nfDw",
+      authDomain: "yesnailsreviseddb.firebaseapp.com",
+      databaseURL: "https://yesnailsreviseddb.firebaseio.com",
+      projectId: "yesnailsreviseddb",
+      storageBucket: "",
+      messagingSenderId: "48437178245",
+      appId: "1:48437178245:web:68cc55f1dc0bcb66"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    const database = firebase.database().ref("customers");
+
+    const customerList = document.getElementById("container");
+
+    // By using child_added, we can listen real time for more entries added
+    database.on("child_added", function(snapshot) {
+      const customerData = snapshot.val();
+      const customerBox = document.createElement("div");
+      customerBox.className = "customer-box";
+      customerBox.innerHTML ="Name: " + customerData.name + "<br>" + "&nbspServices: " + customerData.services;
+      
+      customerBox.addEventListener('click', function() {
+        const bg = customerBox.style.backgroundColor;
+        if (bg == "green") {
+          customerBox.style.backgroundColor = "white";
+        } else {
+          customerBox.style.backgroundColor = "rgb(0, 245, 0)";
+        }
+      })
+
+
+      customerList.appendChild(customerBox)
+    });
+
+
+  </script>
+</body>
+</html>

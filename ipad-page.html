@@ -47,6 +47,7 @@
       var dateTime = date+' '+time;
 
       // Send data to firebase
+      // TODO: Make sure to check that there won't be any empty entries.
       firebase.database().ref('customers/' + dateTime).set({
         name: nameField.value,
         services: servicesField.value
