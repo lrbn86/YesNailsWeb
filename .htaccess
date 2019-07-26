@@ -1,4 +1,4 @@
-AuthUserFile /.htpasswd
+AuthUserFile /Users/brandonnguyen/Desktop/YesNails_WebAPP/.htpasswd
 AuthType Basic
 AuthName "Restricted Access"
 Require user lrbn86
