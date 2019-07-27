@@ -39,7 +39,7 @@
       const customerData = snapshot.val();
       const customerBox = document.createElement("div");
       customerBox.className = "customer-box";
-      customerBox.innerHTML ="Name: " + customerData.name + "<br>" + "&nbspServices: " + customerData.services;
+      customerBox.innerHTML ="Name: " + customerData.name + "<br>" + "&nbspServices: " + customerData.services + "<br>" + "&nbspTime: " + snapshot.key;
       // Scroll to bottom every time an item is added.
       // Currently works on the phone, but not on desktop
       window.scrollTo(0, document.body.scrollHeight);
