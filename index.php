@@ -12,7 +12,7 @@
 </head>
 <body>
 
-  <button id="phoneBtn" class="btn btn-primary">iPhone</button>
+  <button id="phoneBtn" class="btn btn-primary">iPhmone</button>
   <button id="padBtn" class="btn btn-primary">iPad</button>
 
 
