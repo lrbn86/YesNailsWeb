@@ -57,6 +57,7 @@
           console.log("Deleting: " + customerData.name);
           console.log(snapshot.key);
           database.child(snapshot.key).remove();
+          customerBox.innerHTML = "Deleted";
 
 
 
