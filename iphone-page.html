@@ -32,30 +32,35 @@
 
     const customerList = document.getElementById("container");
 
+    var selectedCustomers = [];
+
     // By using child_added, we can listen real time for more entries added
     database.on("child_added", function(snapshot) {
       const customerData = snapshot.val();
       const customerBox = document.createElement("div");
       customerBox.className = "customer-box";
       customerBox.innerHTML ="Name: " + customerData.name + "<br>" + "&nbspServices: " + customerData.services;
-      
       // Scroll to bottom every time an item is added.
       // Currently works on the phone, but not on desktop
       window.scrollTo(0, document.body.scrollHeight);
       
       // TODO: Think about how to implement localStorage to keep colors upon refresh.
 
-      customerBox.addEventListener('click', function() {
-        var currentBG = sessionStorage.getItem('cBG');
-        if (currentBG == "rgb(0, 245, 0)") {
-          sessionStorage.setItem('cBG', 'white');
-          
-          customerBox.style.backgroundColor = 'white';
-        } else {
-          sessionStorage.setItem('cBG', 'rgb(0, 245, 0)');
-          customerBox.style.backgroundColor = 'rgb(0, 245, 0)';
+      customerBox.addEventListener('click', function() {        
+        var result = confirm("Want to delete?");
+        if (result) {
+          // Remove from list.
+          customerList.removeChild(customerBox);
+
+          // Remove from firebase as well.
+          console.log("Deleting: " + customerData.name);
+          console.log(snapshot.key);
+          database.child(snapshot.key).remove();
+
+
+
         }
-      })
+      });
 
 
       customerList.appendChild(customerBox)
