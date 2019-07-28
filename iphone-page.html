@@ -59,6 +59,7 @@
           console.log(snapshot.key);
           database.child(snapshot.key).remove();
           customerBox.innerHTML = "Deleted";
+          window.location.reload(1);
         }
       });
 
