@@ -34,6 +34,8 @@
 
     var selectedCustomers = [];
 
+    // TODO: Bug: If another iphone deletes an entry, the different iphone won't automatically update with the delete.
+
     // By using child_added, we can listen real time for more entries added
     database.on("child_added", function(snapshot) {
       const customerData = snapshot.val();

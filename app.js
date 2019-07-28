@@ -8,3 +8,7 @@ phoneBtn.addEventListener('click', function() {
 padBtn.addEventListener('click', function() {
   window.location.href = "ipad-page.html";
 });
+
+setTimeout(function() {
+  window.location.reload(1);
+}, 5000);
