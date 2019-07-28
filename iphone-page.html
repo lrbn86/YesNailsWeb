@@ -52,15 +52,11 @@
           alert("Customer deleted.")
           // Remove from list.
           customerList.removeChild(customerBox);
-          
           // Remove from firebase as well.
           console.log("Deleting: " + customerData.name);
           console.log(snapshot.key);
           database.child(snapshot.key).remove();
           customerBox.innerHTML = "Deleted";
-
-
-
         }
       });
 
